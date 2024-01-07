@@ -1,0 +1,6 @@
+.gitignore
+LICENSE
+target/*
+.idea/*
+configs/*
+telegram-bot.iml

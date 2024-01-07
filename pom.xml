@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.spector517.veepeenet</groupId>
-	<artifactId>telegram-bot</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<artifactId>veepeenet-telegram-bot</artifactId>
+	<version>0.1.0</version>
 	<name>VeePeeNet Telegram Bot</name>
 	<description>Telegram Bot for deploy private VPN server</description>
 	<properties>
