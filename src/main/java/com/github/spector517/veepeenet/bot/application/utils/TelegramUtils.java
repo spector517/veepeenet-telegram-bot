@@ -3,7 +3,7 @@ package com.github.spector517.veepeenet.bot.application.utils;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
-public class MessageUtils {
+public class TelegramUtils {
 
     private final char[] MD_2_CHARS_TO_ESCAPE = new char[] {
             '_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'

@@ -17,6 +17,6 @@ public class HostReqExecutor extends DefaultExecutor {
             client.setHost(update.getMessage().getText().trim());
             return true;
         }
-        return false;
+        throw new IllegalStateException("Text message expected, but not found.");
     }
 }

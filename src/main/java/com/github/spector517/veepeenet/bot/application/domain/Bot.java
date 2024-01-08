@@ -56,6 +56,10 @@ public class Bot extends TelegramLongPollingBot {
                 clientStagesProcessingService.processClient(client);
                 return;
             }
+            if (client.getStage() == null) {
+                log.warn("Client has no stage. Only commands allowed.");
+                return;
+            }
             if (!answer.equals(client.getStage().getData().getAllowedAnswer())) {
                 log.warn("Answer '{}' are not allowed for current stage", answer);
                 return;

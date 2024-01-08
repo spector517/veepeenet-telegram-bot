@@ -2,6 +2,7 @@ package com.github.spector517.veepeenet.bot.application.domain.stages.executors;
 
 import com.github.spector517.veepeenet.bot.application.domain.Bot;
 import com.github.spector517.veepeenet.bot.application.domain.Client;
+import com.github.spector517.veepeenet.bot.application.domain.exceptions.UnexpectedCallbackQueryException;
 import com.github.spector517.veepeenet.bot.application.domain.stages.StageData;
 import com.github.spector517.veepeenet.bot.application.utils.RenderUtils;
 import lombok.RequiredArgsConstructor;
@@ -58,8 +59,9 @@ public class DefaultExecutor implements StageExecutor {
                     return true;
                 }
             }
+            throw new UnexpectedCallbackQueryException(update.getCallbackQuery());
         }
-        return false;
+        throw new IllegalStateException("Callback query expected, but not found.");
     }
 
     protected void removeReplyKeyboard(CallbackQuery callbackQuery, Bot bot) throws Exception {

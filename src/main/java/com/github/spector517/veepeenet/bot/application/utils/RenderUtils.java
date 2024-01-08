@@ -29,7 +29,7 @@ public class RenderUtils {
 
     private String getSafeValue(String unsafeText, ParseMode parseMode) {
         return ParseMode.MARKDOWN_V2.equals(parseMode)
-                ? MessageUtils.escapeMD2Chars(unsafeText)
+                ? TelegramUtils.escapeMD2Chars(unsafeText)
                 : unsafeText;
     }
 }

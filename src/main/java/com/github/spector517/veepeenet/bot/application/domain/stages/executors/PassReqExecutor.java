@@ -17,6 +17,6 @@ public class PassReqExecutor extends DefaultExecutor {
             client.setPassword(update.getMessage().getText().trim());
             return true;
         }
-        return false;
+        throw new IllegalStateException("Text message expected, but not found.");
     }
 }

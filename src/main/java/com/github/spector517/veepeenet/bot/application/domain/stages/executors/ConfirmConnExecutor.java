@@ -22,6 +22,6 @@ public class ConfirmConnExecutor extends DefaultExecutor {
             client.getBot().execute(deleteMessage);
             return super.init(client);
         }
-        return false;
+        throw new IllegalStateException("Text message expected, but not found.");
     }
 }

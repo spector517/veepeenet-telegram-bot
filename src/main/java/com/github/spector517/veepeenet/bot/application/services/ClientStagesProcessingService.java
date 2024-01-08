@@ -1,6 +1,7 @@
 package com.github.spector517.veepeenet.bot.application.services;
 
 import com.github.spector517.veepeenet.bot.application.domain.Client;
+import com.github.spector517.veepeenet.bot.application.domain.exceptions.UnexpectedCallbackQueryException;
 import com.github.spector517.veepeenet.bot.application.domain.stages.StageExecutorFactory;
 import com.github.spector517.veepeenet.bot.application.utils.MDCUtils;
 import com.github.spector517.veepeenet.bot.presentation.data.mappers.ClientMapper;
@@ -76,6 +77,10 @@ public class ClientStagesProcessingService implements Runnable {
     private void processCompletion(Client client) {
         try {
             client.setCurrentStageCompleted(stageExecutorFactory.get(client.getStage()).complete(client));
+        } catch (UnexpectedCallbackQueryException unexpectedCallbackQueryException) {
+            log.warn("Unexpected callback query received");
+            log.debug(unexpectedCallbackQueryException);
+            return;
         } catch (Exception ex) {
             log.warn("Completion of stage failed");
             log.debug(ex);
