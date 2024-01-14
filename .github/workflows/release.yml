@@ -1,7 +1,10 @@
-name: CI
+name: release
 
 on:
-  workflow_dispatch: 
+  push:
+    branches:
+      - release/*
+  workflow_dispatch:
 
 jobs:
   docker:
@@ -18,10 +21,17 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_TOKEN }}
     -
+      name: Calculate version
+      id: split
+      uses: winterjung/split@v2.1.0
+      with:
+        msg: ${{ github.ref_name }}
+        separator: /
+    -
       name: Build and push
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: ghcr.io/${{ github.actor }}/veepeenet-telegram-bot:0.1
+        tags: ghcr.io/${{ github.actor }}/veepeenet-telegram-bot:${{ steps.split.outputs._1 }}
 
     
