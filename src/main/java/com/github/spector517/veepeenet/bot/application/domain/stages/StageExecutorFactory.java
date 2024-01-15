@@ -25,8 +25,6 @@ public class StageExecutorFactory {
         stageExecutorMap = new EnumMap<>(Stage.class);
         for (Stage stage: Stage.values()) {
             var executor = switch (stage) {
-                case START, VPN_ADVANTAGES, ABOUT_PROCEDURE, VPS_RENT, CONN_SUCCESS, CONN_ERROR,
-                        CLIENTS_RULES, CLIENTS_INCORRECT, DEPLOY_SUCCESS, DEPLOY_FAIL -> defaultExecutor;
                 case CHECK_CONN -> checkConnExecutor;
                 case CLIENTS_CORRECT -> clientsCorrectExecutor;
                 case CLIENTS_REQ -> clientsReqExecutor;
@@ -36,6 +34,7 @@ public class StageExecutorFactory {
                 case PASS_REQ -> passReqExecutor;
                 case RUN_DEPLOY -> runDeployExecutor;
                 case STOP -> stopExecutor;
+                default -> defaultExecutor;
             };
             stageExecutorMap.put(stage, executor);
         }

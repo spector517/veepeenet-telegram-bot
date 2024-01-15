@@ -96,10 +96,22 @@ vps-rent:
 
 host-req:
   text: |
-    *Отправь мне IP адрес сервера*
+    *Отправь мне IP-адрес сервера*
   parse_mode: Markdown
   allowed_answer: message
   next: login-req
+  fail: host-validation-error
+
+host-validation-error:
+  text: |
+    Введён некорректный IP-адрес☹️
+
+  allowed_answer: callback
+  chooses:
+    - display: 🔄Вести IP-адрес снова
+      to: host-req
+    - display: ❌Я передумал
+      to: stop
 
 login-req:
   text: |
@@ -109,6 +121,18 @@ login-req:
   parse_mode: Markdown
   allowed_answer: message
   next: pass-req
+  fail: login-validation-error
+
+login-validation-error:
+  text: |
+    Введёно некорректное имя пользовтеля🫣
+
+  allowed_answer: callback
+  chooses:
+    - display: 🔄Вести имя пользователя снова
+      to: login-req
+    - display: ❌Я передумал
+      to: stop
 
 pass-req:
   text: |

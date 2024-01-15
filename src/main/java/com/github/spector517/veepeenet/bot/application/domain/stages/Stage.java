@@ -19,6 +19,8 @@ public enum Stage {
     VPN_ADVANTAGES("vpn-advantages"),
     ABOUT_PROCEDURE("about-procedure"),
     VPS_RENT("vps-rent"),
+    HOST_VALIDATION_ERROR("host-validation-error"),
+    LOGIN_VALIDATION_ERROR("login-validation-error"),
     CONN_SUCCESS("conn-success"),
     CONN_ERROR("conn-error"),
     CLIENTS_RULES("clients-rules"),
