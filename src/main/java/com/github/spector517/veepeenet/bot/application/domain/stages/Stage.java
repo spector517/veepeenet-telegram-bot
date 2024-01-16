@@ -16,6 +16,7 @@ import java.util.HashMap;
 public enum Stage {
 
     START("start"),
+    RESTART("restart"),
     VPN_ADVANTAGES("vpn-advantages"),
     ABOUT_PROCEDURE("about-procedure"),
     VPS_RENT("vps-rent"),

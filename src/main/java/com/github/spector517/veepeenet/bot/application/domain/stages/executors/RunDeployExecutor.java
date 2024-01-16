@@ -24,6 +24,7 @@ public class RunDeployExecutor extends DefaultExecutor {
 
     @Override
     public boolean init(Client client) throws Exception {
+        client.setVpnConfigureResult(null);
         configureVpnService.configureVPN(client);
         return super.init(client);
     }

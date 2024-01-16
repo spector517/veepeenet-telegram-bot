@@ -13,6 +13,12 @@ public class HostReqExecutor extends DefaultExecutor {
     }
 
     @Override
+    public boolean init(Client client) throws Exception {
+        client.setSshCheckConnectionResult(null);
+        return super.init(client);
+    }
+
+    @Override
     public boolean complete(Client client) throws Exception {
         var update = client.getUpdate();
         if (update.hasMessage()) {

@@ -14,7 +14,7 @@ import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import java.io.InputStream;
+import java.io.ByteArrayInputStream;
 import java.nio.file.Path;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -33,7 +33,7 @@ public class ConfigureVpnService implements Runnable {
 
     private final AppProperties appProperties;
     private final Queue<Client> configureVpnQueue = new ConcurrentLinkedQueue<>();
-    private final InputStream deployVpnScriptInputStream;
+    private final byte[] deployVpnScriptBytes;
 
     public void configureVPN(Client client) {
         log.debug("Add client to configure VPN processing");
@@ -62,7 +62,10 @@ public class ConfigureVpnService implements Runnable {
                     appProperties.getSshExecTimeout(),
                     appProperties.getSshExecTimeout()
             )) {
-                sshConnector.putFile(appProperties.getVpnScriptRemotePath(), deployVpnScriptInputStream);
+                sshConnector.putFile(
+                        appProperties.getVpnScriptRemotePath(),
+                        new ByteArrayInputStream(deployVpnScriptBytes)
+                );
                 var command = "%s %s --clean --host %s --output %s --add-clients %s".formatted(
                         appProperties.getRemotePythonInterpreter(),
                         appProperties.getVpnScriptRemotePath(),

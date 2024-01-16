@@ -39,9 +39,11 @@ public class CommandHandler {
 
     private void handleStart(Client client) {
         log.debug("Handle '{}' command", Command.START);
-        client.setStage(Stage.START);
-        client.setVpnConfigureResult(null);
-        client.setSshCheckConnectionResult(null);
+        if (Result.OK.equals(client.getVpnConfigureResult())) {
+            client.setStage(Stage.RESTART);
+        } else {
+            client.setStage(Stage.START);
+        }
     }
 
     private void handleStop(Client client) {
