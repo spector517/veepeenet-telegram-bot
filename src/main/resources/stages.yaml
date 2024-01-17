@@ -176,7 +176,7 @@ confirm-conn:
     - display: 📶Проверить подключение
       to: check-conn
     - display: ✍️Скорректировать данные
-      to: hots-req
+      to: host-req
     - display: ❌Я передумал
       to: stop
 
