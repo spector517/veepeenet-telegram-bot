@@ -2,5 +2,5 @@
 LICENSE
 target/*
 .idea/*
-configs/*
+veepeenet-services/*
 telegram-bot.iml
