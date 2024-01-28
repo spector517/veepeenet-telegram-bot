@@ -13,3 +13,14 @@ app:
 logging:
   level:
     com.github.spector517.veepeenet.bot: DEBUG
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/veepeenet
+    username: postgres
+    password: qwe123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

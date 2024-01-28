@@ -13,7 +13,7 @@ public class ClientMapper {
 
     public ClientEntity toEntity(Client client) {
         return ClientEntity.builder()
-                .telegramId(client.getTelegramId())
+                .id(client.getTelegramId())
                 .name(client.getName())
                 .stageName(client.getStage() != null ? client.getStage().getName() : null)
                 .stageInitiated(client.isCurrentStageInitiated())
@@ -41,7 +41,7 @@ public class ClientMapper {
             stage = null;
         }
         return Client.builder()
-                .telegramId(clientEntity.getTelegramId())
+                .telegramId(clientEntity.getId())
                 .name(clientEntity.getName())
                 .bot(bot)
                 .stage(stage)

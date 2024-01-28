@@ -8,7 +8,7 @@ public interface ClientsRepo {
 
     Optional<ClientEntity> find(long telegramId);
 
-    ClientEntity save(ClientEntity clientEntity);
+    void save(ClientEntity clientEntity);
 
     void delete(ClientEntity clientEntity);
 }
