@@ -2,7 +2,7 @@ app:
   name: Bot
   token: your:secret_token
   tick_rate: 10
-  deploy_vpn_script_url: https://raw.githubusercontent.com/spector517/veepeenet-install/main/wireguard.py
+  deploy_vpn_script_url: https://raw.githubusercontent.com/spector517/veepeenet-install/v1.0.0/wireguard.py
   ssh_connection_timeout: 5_000
   ssh_exec_timeout: 20_000
   vpn_script_remote_path: /tmp/wireguard.py

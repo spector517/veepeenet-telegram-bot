@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.spector517.veepeenet</groupId>
 	<artifactId>veepeenet-telegram-bot</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<name>VeePeeNet Telegram Bot</name>
 	<description>Telegram Bot for deploy private VPN server</description>
 	<properties>
